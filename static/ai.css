@@ -1,0 +1,1414 @@
+/*==================================================
+  MODERN PERFUME WEBSITE CSS
+  PART 1/5
+===================================================*/
+
+/* Google Font */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* CSS Variables */
+
+:root{
+
+--primary:#111827;
+--secondary:#7c3aed;
+--accent:#f59e0b;
+--light:#f8fafc;
+--white:#ffffff;
+--text:#374151;
+--grey:#6b7280;
+--border:#e5e7eb;
+
+--shadow-sm:0 5px 15px rgba(0,0,0,.08);
+--shadow:0 10px 30px rgba(0,0,0,.12);
+--shadow-lg:0 20px 60px rgba(0,0,0,.18);
+
+--radius:18px;
+
+--transition:.35s ease;
+}
+
+/* Reset */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:linear-gradient(to bottom,#ffffff,#f8fafc);
+
+color:var(--text);
+
+overflow-x:hidden;
+
+line-height:1.7;
+}
+
+/* Scroll Bar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#ececec;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:linear-gradient(#7c3aed,#4f46e5);
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#4f46e5;
+
+}
+
+/*==================================================
+NAVIGATION
+===================================================*/
+
+.header{
+
+position:sticky;
+
+top:0;
+
+z-index:999;
+
+}
+
+nav{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:20px 8%;
+
+background:rgba(17,24,39,.85);
+
+backdrop-filter:blur(15px);
+
+-webkit-backdrop-filter:blur(15px);
+
+box-shadow:var(--shadow);
+
+}
+
+nav h1{
+
+font-size:32px;
+
+font-weight:700;
+
+color:white;
+
+letter-spacing:2px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+nav h1:hover{
+
+color:var(--accent);
+
+}
+
+nav ul{
+
+display:flex;
+
+list-style:none;
+
+gap:35px;
+
+}
+
+nav li{
+
+color:#d1d5db;
+
+font-size:17px;
+
+font-weight:500;
+
+cursor:pointer;
+
+position:relative;
+
+transition:var(--transition);
+
+}
+
+nav li:hover{
+
+color:white;
+
+}
+
+/* Animated underline */
+
+nav li::after{
+
+content:"";
+
+position:absolute;
+
+left:0;
+
+bottom:-8px;
+
+width:0;
+
+height:3px;
+
+background:linear-gradient(to right,#7c3aed,#4f46e5);
+
+transition:.4s;
+
+border-radius:20px;
+
+}
+
+nav li:hover::after{
+
+width:100%;
+
+}
+
+/*==================================================
+SEARCH
+===================================================*/
+
+.searchbar{
+
+padding:70px 20px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.searchbar input{
+
+width:100%;
+
+max-width:750px;
+
+padding:18px 28px;
+
+border:none;
+
+outline:none;
+
+background:white;
+
+border-radius:60px;
+
+box-shadow:var(--shadow);
+
+font-size:17px;
+
+transition:.35s;
+
+}
+
+.searchbar input::placeholder{
+
+color:#9ca3af;
+
+}
+
+.searchbar input:focus{
+
+transform:scale(1.02);
+
+box-shadow:
+
+0 0 0 4px rgba(124,58,237,.2),
+
+var(--shadow-lg);
+
+}
+
+/*==================================================
+ANIMATIONS
+===================================================*/
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes zoom{
+
+from{
+
+transform:scale(.8);
+
+opacity:0;
+
+}
+
+to{
+
+transform:scale(1);
+
+opacity:1;
+
+}
+
+}
+
+.product{
+
+animation:fadeUp 1s ease;
+
+}
+
+.about{
+
+animation:fadeUp 1.2s ease;
+
+}
+
+.contact{
+
+animation:fadeUp 1.4s ease;
+
+}
+
+/*==================================================
+UTILITY
+===================================================*/
+
+img{
+
+display:block;
+
+max-width:100%;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:inherit;
+
+}
+
+button{
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+section{
+
+padding:80px 8%;
+
+}
+.product{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:35px;
+
+    padding:30px 8% 80px;
+
+}
+
+/* Product Card */
+
+.box{
+
+    width:300px;
+
+    background:#fff;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    position:relative;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+    transition:all .45s ease;
+
+    cursor:pointer;
+
+}
+
+/* Premium Gradient Border */
+
+.box::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    padding:2px;
+
+    border-radius:22px;
+
+    background:linear-gradient(135deg,#7c3aed,#4f46e5,#06b6d4);
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+
+    -webkit-mask-composite:xor;
+
+            mask-composite:exclude;
+
+    opacity:0;
+
+    transition:.4s;
+
+}
+
+/* Hover Effect */
+
+.box:hover{
+
+    transform:translateY(-15px);
+
+    box-shadow:0 30px 60px rgba(0,0,0,.18);
+
+}
+
+.box:hover::before{
+
+    opacity:1;
+
+}
+
+/* Image */
+
+.box img{
+
+    width:100%;
+
+    height:280px;
+
+    object-fit:cover;
+
+    transition:.6s;
+
+}
+
+/* Zoom Image */
+
+.box:hover img{
+
+    transform:scale(1.08);
+
+}
+
+/* Product Description */
+
+.box p{
+
+    padding:22px;
+
+    font-size:15px;
+
+    color:#555;
+
+    line-height:1.8;
+
+    transition:.3s;
+
+}
+
+.box:hover p{
+
+    color:#222;
+
+}
+
+/* Shine Animation */
+
+.box::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-150%;
+
+    width:60%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.5),
+
+        transparent
+
+    );
+
+    transform:skewX(-25deg);
+
+}
+
+.box:hover::after{
+
+    left:180%;
+
+    transition:1s;
+
+}
+
+/* Floating Animation */
+
+.box{
+
+    animation:floatCard 5s ease-in-out infinite;
+
+}
+
+.box:nth-child(2){
+
+    animation-delay:.5s;
+
+}
+
+.box:nth-child(3){
+
+    animation-delay:1s;
+
+}
+
+@keyframes floatCard{
+
+    0%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(-8px);
+
+    }
+
+    100%{
+
+        transform:translateY(0);
+
+    }
+
+}
+
+/* Glass Effect on Hover */
+
+.box:hover{
+
+    backdrop-filter:blur(10px);
+
+}
+
+/* Product Badge (Optional) */
+
+.box span{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    background:#ef4444;
+
+    color:#fff;
+
+    padding:6px 14px;
+
+    border-radius:50px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.2);
+
+}
+
+/* Soft Background Behind Products */
+
+.product{
+
+    position:relative;
+
+}
+
+.product::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:450px;
+
+    height:450px;
+
+    background:#c4b5fd;
+
+    border-radius:50%;
+
+    filter:blur(150px);
+
+    top:50px;
+
+    left:-120px;
+
+    z-index:-1;
+
+}
+
+.product::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:400px;
+
+    height:400px;
+
+    background:#bfdbfe;
+
+    border-radius:50%;
+
+    filter:blur(150px);
+
+    bottom:-80px;
+
+    right:-120px;
+
+    z-index:-1;
+
+}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+.product{
+
+    gap:25px;
+
+}
+
+.box{
+
+    width:280px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.product{
+
+    flex-direction:column;
+
+}
+
+.box{
+
+    width:100%;
+
+    max-width:340px;
+
+}
+
+}
+/*====================================================
+                ABOUT SECTION
+=====================================================*/
+
+.about{
+
+    width:100%;
+    padding:100px 10%;
+    text-align:center;
+    position:relative;
+
+}
+
+.about::before{
+
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#a855f7;
+    filter:blur(150px);
+    opacity:.20;
+    left:0;
+    top:20px;
+
+}
+
+.about::after{
+
+    content:"";
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:#3b82f6;
+    filter:blur(150px);
+    opacity:.18;
+    right:0;
+    bottom:0;
+
+}
+
+.about h1{
+
+    font-size:48px;
+    color:#111827;
+    margin-bottom:25px;
+    font-weight:700;
+    position:relative;
+    display:inline-block;
+
+}
+
+.about h1::after{
+
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:-10px;
+    transform:translateX(-50%);
+    width:90px;
+    height:5px;
+    border-radius:20px;
+    background:linear-gradient(90deg,#7c3aed,#3b82f6);
+
+}
+
+.about p{
+
+    margin:auto;
+    margin-top:40px;
+    max-width:1000px;
+    color:#6b7280;
+    font-size:17px;
+    line-height:2;
+
+}
+
+
+/*====================================================
+            CONTACT SECTION
+=====================================================*/
+
+.contact{
+
+    position:relative;
+
+    background:#0f172a;
+
+    color:white;
+
+    padding:80px 10%;
+
+    text-align:center;
+
+    overflow:hidden;
+
+}
+
+.contact::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:#4f46e5;
+
+    filter:blur(180px);
+
+    opacity:.35;
+
+    left:-120px;
+
+    top:-80px;
+
+}
+
+.contact::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+
+    height:350px;
+
+    border-radius:50%;
+
+    background:#7c3aed;
+
+    filter:blur(180px);
+
+    opacity:.30;
+
+    right:-100px;
+
+    bottom:-100px;
+
+}
+
+.contact h2{
+
+    position:relative;
+
+    z-index:10;
+
+    font-size:42px;
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+.contact h3{
+
+    position:relative;
+
+    z-index:10;
+
+    font-weight:400;
+
+    color:#d1d5db;
+
+    margin:8px;
+
+    font-size:18px;
+
+}
+
+.contact p{
+
+    position:relative;
+
+    z-index:10;
+
+    width:80%;
+
+    margin:auto;
+
+    margin-top:35px;
+
+    color:#cbd5e1;
+
+    font-size:16px;
+
+    line-height:1.9;
+
+}
+
+
+/*====================================================
+            PREMIUM HOVER EFFECTS
+=====================================================*/
+
+.contact h3:hover{
+
+    color:white;
+
+    transition:.3s;
+
+}
+
+.about h1:hover{
+
+    color:#7c3aed;
+
+    transition:.3s;
+
+}
+
+
+/*====================================================
+            GLASS CARD EFFECT
+=====================================================*/
+
+.about{
+
+    backdrop-filter:blur(20px);
+
+}
+
+.contact{
+
+    backdrop-filter:blur(20px);
+
+}
+
+
+/*====================================================
+            TEXT ANIMATION
+=====================================================*/
+
+.about h1{
+
+    animation:titleFade 1.5s ease;
+
+}
+
+.contact h2{
+
+    animation:titleFade 1.8s ease;
+
+}
+
+@keyframes titleFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(50px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*====================================================
+                PARAGRAPH ANIMATION
+=====================================================*/
+
+.about p{
+
+    animation:textFade 2s ease;
+
+}
+
+.contact p{
+
+    animation:textFade 2.2s ease;
+
+}
+
+@keyframes textFade{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(30px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/*====================================================
+            PREMIUM SECTION SPACING
+=====================================================*/
+
+.about{
+
+    margin-top:60px;
+
+}
+
+.contact{
+
+    margin-top:80px;
+
+}
+/*====================================================
+            RESPONSIVE DESIGN
+=====================================================*/
+
+/* Large Tablets */
+
+@media (max-width:1024px){
+
+    nav{
+        padding:18px 5%;
+    }
+
+    nav ul{
+        gap:25px;
+    }
+
+    .about h1{
+        font-size:40px;
+    }
+
+    .contact h2{
+        font-size:36px;
+    }
+
+}
+
+/* Tablets */
+
+@media (max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+    }
+
+    .searchbar{
+        padding:50px 15px;
+    }
+
+    .about h1{
+        font-size:34px;
+    }
+
+    .about p{
+        font-size:16px;
+    }
+
+    .contact p{
+        width:95%;
+    }
+
+}
+
+/* Mobile */
+
+@media (max-width:480px){
+
+    nav h1{
+        font-size:26px;
+    }
+
+    nav li{
+        font-size:14px;
+    }
+
+    .searchbar input{
+        padding:15px 18px;
+        font-size:15px;
+    }
+
+    .box{
+        width:100%;
+    }
+
+    .about h1{
+        font-size:28px;
+    }
+
+    .contact h2{
+        font-size:30px;
+    }
+
+}
+
+
+/*====================================================
+            DARK MODE (OPTIONAL CLASS)
+=====================================================*/
+
+body.dark{
+
+    background:#0b1220;
+    color:#e5e7eb;
+
+}
+
+body.dark nav{
+
+    background:rgba(0,0,0,.7);
+
+}
+
+body.dark .box{
+
+    background:#111827;
+
+    color:#e5e7eb;
+
+}
+
+body.dark .about{
+
+    background:transparent;
+
+}
+
+body.dark .contact{
+
+    background:#020617;
+
+}
+
+
+/*====================================================
+            UTILITY CLASSES
+=====================================================*/
+
+.text-center{
+    text-align:center;
+}
+
+.mt-1{margin-top:10px;}
+.mt-2{margin-top:20px;}
+.mt-3{margin-top:30px;}
+.mt-4{margin-top:40px;}
+
+.p-1{padding:10px;}
+.p-2{padding:20px;}
+.p-3{padding:30px;}
+.p-4{padding:40px;}
+
+.rounded{
+    border-radius:15px;
+}
+
+.shadow{
+    box-shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+.fade-in{
+    animation:fadeUp 1s ease forwards;
+}
+
+.zoom-in{
+    animation:zoom 1s ease forwards;
+}
+
+
+/*====================================================
+            SCROLL ANIMATION SUPPORT
+=====================================================*/
+
+.hidden{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all .8s ease;
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+/*====================================================
+            BUTTON STYLE (FUTURE USE)
+=====================================================*/
+
+.btn{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    background:linear-gradient(135deg,#7c3aed,#4f46e5);
+
+    color:white;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-weight:500;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 10px 25px rgba(124,58,237,.3);
+
+}
+
+.btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 15px 35px rgba(124,58,237,.4);
+
+}
+/*====================================================
+            FINAL POLISH (LUXURY FEEL)
+=====================================================*/
+
+/* Smooth transitions everywhere */
+
+*{
+    transition:all .3s ease;
+}
+
+/* Better selection color */
+
+::selection{
+    background:#7c3aed;
+    color:white;
+}
+
+/* Improve text rendering */
+
+body{
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+}
+
+/*====================================================
+            NAV FINAL TOUCH
+=====================================================*/
+
+nav{
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+nav li{
+    letter-spacing:.5px;
+}
+
+/*====================================================
+            PRODUCT FINAL TOUCH
+=====================================================*/
+
+.box{
+    border:1px solid rgba(0,0,0,.05);
+}
+
+/* subtle glow on hover */
+
+.box:hover{
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.18),
+        0 0 25px rgba(124,58,237,.15);
+}
+
+/*====================================================
+            SEARCH FINAL TOUCH
+=====================================================*/
+
+.searchbar input{
+    border:1px solid rgba(0,0,0,.05);
+}
+
+.searchbar input:focus{
+    outline:none;
+}
+
+/*====================================================
+            ABOUT FINAL TOUCH
+=====================================================*/
+
+.about p{
+    letter-spacing:.2px;
+}
+
+/*====================================================
+            CONTACT FINAL TOUCH
+=====================================================*/
+
+.contact{
+    border-top:1px solid rgba(255,255,255,.05);
+}
+
+.contact h3{
+    transition:.3s;
+    cursor:pointer;
+}
+
+.contact h3:hover{
+    color:#a78bfa;
+    transform:translateY(-2px);
+}
+
+/*====================================================
+            SMOOTH SCROLL
+=====================================================*/
+
+html{
+    scroll-behavior:smooth;
+}
+
+/*====================================================
+            IMAGE QUALITY BOOST
+=====================================================*/
+
+img{
+    filter:contrast(1.05) saturate(1.05);
+}
+
+/*====================================================
+            BUTTON ENHANCEMENT
+=====================================================*/
+
+.btn:active{
+    transform:scale(.96);
+}
+
+/*====================================================
+            GLASS MORPHISM BOOST
+=====================================================*/
+
+nav,
+.about,
+.contact{
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+}
+
+/*====================================================
+            LUXURY LAYOUT FEEL
+=====================================================*/
+
+body{
+    background:
+        radial-gradient(circle at top left, rgba(124,58,237,.08), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(59,130,246,.08), transparent 40%),
+        #f8fafc;
+}
+
+/*====================================================
+            HOVER DEPTH SYSTEM
+=====================================================*/
+
+.box,
+.btn,
+nav li{
+    will-change:transform;
+}
+
+/*====================================================
+            LOADING FEEL (OPTIONAL)
+=====================================================*/
+
+@keyframes softPulse{
+    0%{opacity:.7;}
+    50%{opacity:1;}
+    100%{opacity:.7;}
+}
+
+.searchbar input::placeholder{
+    animation:softPulse 2.5s infinite;
+}
+
+/*====================================================
+            FINAL MOBILE POLISH
+=====================================================*/
+
+@media (max-width:480px){
+
+    nav ul{
+        gap:12px;
+    }
+
+    .searchbar{
+        padding:40px 10px;
+    }
+
+    .box{
+        border-radius:16px;
+    }
+
+}
